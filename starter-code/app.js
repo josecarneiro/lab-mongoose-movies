@@ -4,8 +4,8 @@ const favicon = require('serve-favicon');
 const hbs = require('hbs');
 const logger = require('morgan');
 const path = require('path');
-
 const app = express();
+hbs.registerPartials(__dirname + '/views/partials');
 
 // Express View engine setup
 app.use(
