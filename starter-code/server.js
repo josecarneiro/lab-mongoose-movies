@@ -5,7 +5,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const app = require('./app');
 
-const databaseURI = 'mongodb://localhost/starter-code';
+const databaseURI = 'mongodb://localhost:27017/celebrity';
 
 mongoose
   .connect(databaseURI, {
@@ -14,8 +14,8 @@ mongoose
   })
   .then(() => {
     console.log('Mongoose connection established.');
-    const server = app.listen(process.env.PORT, () => {
-      console.log(`Listening on http://localhost:${process.env.PORT}`);
+    const server = app.listen(3000, () => {
+      console.log(`Listening on http://localhost:${3000}`);
     });
     server.on('error', error => {
       if (error.syscall !== 'listen') throw error;
