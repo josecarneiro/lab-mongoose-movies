@@ -4,6 +4,8 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 const app = require('./app');
+// const celebrity = require('./models/celebrity');
+// const data = require('./bin/seeds');
 
 const databaseURI = 'mongodb://localhost/starter-code';
 
