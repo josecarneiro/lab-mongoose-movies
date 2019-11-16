@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const MONGODB_URI = 'mongodb://localhost:27017/celebDb';
+// const MONGODB_URI = 'mongodb://localhost:27017/celebDb';
 
 const celebSchema = new Schema({
   name: { type: String, required: true, unique: true },

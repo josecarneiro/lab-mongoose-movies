@@ -1,6 +1,10 @@
 {{!--  --}}
 {{#with data}}
-<h3>here are the details about {{this.name}}</h3>
+<h2>here are the details about <strong>{{this.name}}</strong></h2>
 
-<p>{{this.name}}'s occupation is {{this.occupation}} and their catch phrase is {{this.catchPhrase}}</p>
+<p><strong>{{this.name}}'s</strong> occupation is <i>{{this.occupation}} </i>and their catch phrase is <i>"
+        {{this.catchPhrase}} "</i></p>
+
+<a href="/celebrities/{{this._id}}/edit" class="small-link"> edit
+    it</a>
 {{/with}}

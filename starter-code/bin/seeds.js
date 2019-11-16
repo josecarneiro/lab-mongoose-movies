@@ -1,24 +1,24 @@
 const mongoose = require('mongoose');
 
-const MONGODB_URI = 'mongodb://localhost:27017/celebDb';
+const MONGODB_URI = 'mongodb://localhost:27017/celebDb'; // this will be the name of the database
 
-let mainCeleb = require('./../models/celebrity');
+let mainMovies = require('./../models/movies');
 
-let arrOfCelebs = [
+let arrOfMovies = [
   {
-    name: 'Tina Turned',
-    occupation: 'Skid Row Pimp',
-    catchPhrase: 'Thats what they said'
+    name: 'The attack of the deadly octopussy',
+    genre: 'Thriller, Horror, Erotic',
+    plot: 'the octopussy attack and there aint enough dick'
   },
   {
-    name: 'Alfred Thickcock',
-    occupation: 'Adult Film director',
-    catchPhrase: 'oh yeah oh yeah o yeah'
+    name: '007 and the brown eye',
+    genre: 'Also porn',
+    plot: 'oh yeah oh yeah o yeah'
   },
   {
-    name: 'Tom Cruise Ship',
-    occupation: 'Sailor',
-    catchPhrase: 'Choo Choo Chooooo'
+    name: 'sharknado 19',
+    genre: 'Sailor porn, thriller, action',
+    plot: 'Choo Choo Chooooo'
   }
 ];
 
@@ -26,10 +26,10 @@ mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true })
   .then(() => {
     console.log('connected to mongoose');
-    return mainCeleb.create(arrOfCelebs);
+    return mainMovies.create(arrOfMovies);
   })
   .then(data => {
-    console.log(`some celebs were aadded and these are them : ${data}`);
+    console.log(`some movies were aadded and these are them : ${data}`);
   })
   .catch(err => {
     console.log(`there was an error: ${err}`);

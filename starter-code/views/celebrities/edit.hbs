@@ -1,0 +1,11 @@
+<h2>Add a celebrity to our glamorous list of glamorous celebrities</h2>
+{{#with data}}
+<div class="create-something">
+    <form action="/{{this._id}}/edit" method="post">
+        <input name="name" type="text" value="{{this.name}} ">
+        <input name="occupation" type="text" value="{{this.occupation}}">
+        <input name="catchPhrase" type="text" value="{{this.catchPhrase}}">
+        <button>Submit</button>
+    </form>
+</div>
+{{/with}}

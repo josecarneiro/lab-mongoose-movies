@@ -1,0 +1,11 @@
+<h2>Add a movie to our glamorous list of extra extraordinary movies</h2>
+{{#with data}}
+<div class="create-something">
+    <form action="/movies/{{this._id}}/edit" method="post">
+        <input name="name" type="text" value="{{this.name}} ">
+        <input name="genre" type="text" value="{{this.genre}}">
+        <input name="plot" type="text" value="{{this.plot}}">
+        <button>Submit</button>
+    </form>
+</div>
+{{/with}}
