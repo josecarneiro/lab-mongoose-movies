@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./server",
-    "dev": "nodemon ./server"
+    "dev": "nodemon ./server -e js,hbs"
   },
   "dependencies": {
     "cookie-parser": "^1.4.3",
