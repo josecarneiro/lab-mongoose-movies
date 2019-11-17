@@ -1,0 +1,11 @@
+<h2>Details</h2>
+{{#with movie}}
+<strong>{{title}}</strong>
+<p>{{genre}}</p>
+<p>"{{plot}}"</p>
+<form action="/movies/{{id}}/delete"  method="POST">
+  <button>delete</button></form>
+  <form action="/movies/{{id}}/edit"  method="GET">
+  <button>edit</button></form>
+{{/with}}
+<a href="/movies">back</a>
