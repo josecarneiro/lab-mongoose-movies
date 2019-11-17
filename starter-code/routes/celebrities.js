@@ -2,6 +2,14 @@ const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/celebrity.js');
 
+router.get('/celebrities/:id', (req, res, next) => {
+  let celebUrl = req.params.id;
+  console.log(req.params)
+  // let oneCeleb = Celebrity.findById(celebUrl);
+  // console.log(oneCeleb);
+   res.render("/celebrities/show");
+  
+});
 
 router.get('/celebrities', (req, res, next) => {
   Celebrity.find().then(data => {
@@ -12,11 +20,6 @@ router.get('/celebrities', (req, res, next) => {
   }).catch((err) => {
     console.log("NAO DEU: ", err)
   });
-});
-
-router.get('/celebrities/:id', (req, res, next) => {
-  let celebUrl = req.params.id;
-  res.render('celebrities/show', celebUrl)
 });
 
 
