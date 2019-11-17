@@ -1,16 +1,18 @@
 #!/usr/bin/env node
 
+// Mongoose and Mongo
 require('dotenv').config();
 
 const mongoose = require('mongoose');
 const app = require('./app');
 
-const databaseURI = 'mongodb://localhost/starter-code';
+const databaseURI = 'mongodb://localhost/celebrity';
 
 mongoose
   .connect(databaseURI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: true
   })
   .then(() => {
     console.log('Mongoose connection established.');
@@ -32,3 +34,4 @@ mongoose
   .catch(error => {
     console.error('Error connecting to mongo', error);
   });
+
