@@ -22,7 +22,34 @@ router.get('/:id', (req, res, next) => {
         });
 });
 
+router.post('/:id', (req, res, next) => {
+    Celebrity.findByIdAndUpdate(req.params.id, {
+            name: req.body.name,
+            occupation: req.body.occupation,
+            catchPhrase: req.body.catchPhrase
+        })
+        .then(celebrity => {
+            res.redirect('/celebrities');
+        })
+        .catch(error => {
+            next(error);
+        });
+});
+
 // Handle GET request for website root
+
+router.get('/:id/edit', (req, res, next) => {
+    Celebrity.findById(req.params.id)
+        .then(celebrity => {
+            res.render('celebrities/edit', {
+                celebrity
+            });
+        })
+        .catch(error => {
+            next(error);
+        });
+});
+
 router.post('/:id/delete', (req, res, next) => {
     Celebrity.findByIdAndRemove(req.params.id)
         .then(celebrity => {
