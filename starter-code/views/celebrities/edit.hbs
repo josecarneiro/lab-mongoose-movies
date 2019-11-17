@@ -1,0 +1,12 @@
+<h2>Edit a Celebrity</h2>
+{{#with celebrity}}
+ <form action="/celebrities/{{_id}}" method="POST">
+  <p>Name</p>
+       <textarea value={{name}} name="name" >{{name}}</textarea>
+  <p>Occupation</p>
+     <textarea value={{occupation}} name="occupation" >{{occupation}}</textarea>
+  <p>Catch Phrase</p>
+     <textarea value={{catchPhrase}} name="catchPhrase">{{catchPhrase}}</textarea>
+ <button>Edit</button>
+ </form>
+{{/with}}
