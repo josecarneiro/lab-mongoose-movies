@@ -34,7 +34,7 @@ router.post('/celebrities/new', (req, res, next) => {
             res.redirect('/index');
         })
         .catch((err) => {
-            console.log("COULDNT ADD CELEBRITY TO LIST!", err);
+            console.log("COULDNT ADD CELEBRITY TO LIST!");
             next(err);
         });
 });
@@ -48,11 +48,45 @@ router.post('/celebrities/:celebrity_id/delete', (req, res, next) => {
             res.redirect('/index');
         })
         .catch((err) => {
-            console.log('COULDNT DELETE CELEBRITY', err);
+            console.log('COULDNT DELETE CELEBRITY');
             next(err);
-        })
+        });
 });
 
+router.get('/celebrities/:celebrity_id/edit', (req, res, next) => {
+    const celebrityId = req.params.celebrity_id;
+    Celebrity.findById(celebrityId)
+    .then((celebrity)=> {
+        console.log('The celebrity to edit was found', celebrity);
+        res.render('celebrities/edit',{
+            celebrity
+        });
+    })
+    .catch((err)=> {
+        console.log(`Couldn't find the celibrity to edit due to an error`);
+        next (err);
+    });
+
+});
+
+
+router.post('/celebrities/:celebrity_id/edit', (req, res, next) => {
+    const celebrityId = req.params.celebrity_id;
+    Celebrity.findByIdAndUpdate(celebrityId, {
+        name: req.body.name,
+        occupation: req.body.occupation,
+        catchPhrase: req.body.catchPhrase
+    })
+    .then((celebrity)=> {
+        console.log('The celebrity was edited', celebrity);
+        res.redirect(`/index`);
+    })
+    .catch((err)=> {
+        console.log(`Couldn't find the celibrity to edit due to an error`);
+        next (err);
+    });
+
+});
 
 
 router.get('/celebrities/:celebrity_id', (req, res, next) => {
@@ -65,7 +99,7 @@ router.get('/celebrities/:celebrity_id', (req, res, next) => {
             })
         })
         .catch(err => {
-            console.log('Couldnt load the celebrity with that id', err)
+            console.log('Couldnt load the celebrity with that id');
         });
 });
 

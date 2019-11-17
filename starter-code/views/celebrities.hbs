@@ -1,5 +1,11 @@
-<p>Celebrities characteristics</p>
+<div class="presentation_pages">
 
-<p>Name:{{celebrity.name}} </p>
-<p>Occupation: {{celebrity.occupation}}</p>
-<p>Specific phrase: {{celebrity.catchPhrase}} </p>
+    <h2>Celebrities characteristics</h2>
+
+    <p>Name:{{celebrity.name}} </p>
+    <p>Occupation: {{celebrity.occupation}}</p>
+    <p>Specific phrase: {{celebrity.catchPhrase}} </p>
+    <form action="/celebrities/{{celebrity._id}}/edit" method="GET"><button>Edit Celebrity</button></form>
+    <form action="/celebrities/{{celebrity._id}}/delete" method="POST"><button>Delete Celebrity</button></form>
+    <form action='/index' method="GET"><button>Go back to list of celebrities</button></form>
+</div>
