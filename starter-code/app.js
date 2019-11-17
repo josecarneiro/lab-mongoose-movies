@@ -37,6 +37,9 @@ app.use('/', index);
 const celebs = require('./routes/celebrities');
 app.use('/celebrities', celebs);
 
+const movies = require('./routes/movies');
+app.use('/movies', movies);
+
 // catch 404 and render a not-found.hbs template
 app.use((req, res, next) => {
   res.status(404);

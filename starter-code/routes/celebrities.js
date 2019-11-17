@@ -34,7 +34,7 @@ router.post('/create', (req,res,next) =>{
 })
 
 router.post('/delete/:id', (req,res,next) =>{
-    delCeleb = req.params.id;
+    const delCeleb = req.params.id;
     Celebrities.findByIdAndDelete(delCeleb)
     .then((celeb) =>{
         console.log(celeb);
@@ -46,7 +46,7 @@ router.post('/delete/:id', (req,res,next) =>{
 });
 
 router.get('/:id/edit', (req,res,next) =>{
-    edCeleb = req.params.id;
+    const edCeleb = req.params.id;
     Celebrities.findById(edCeleb)
     .then((celeb) =>{
         console.log(celeb)
@@ -55,7 +55,7 @@ router.get('/:id/edit', (req,res,next) =>{
 })
 
 router.post('/:id/edit', (req,res,next) =>{
-    edCeleb = req.params.id;
+    const edCeleb = req.params.id;
     Celebrities.findByIdAndUpdate(edCeleb,{
         name: req.body.name,
         occupation: req.body.occupation,
