@@ -20,7 +20,7 @@ app.use(
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-app.locals.title = 'Lab Mongoose Movies';
+app.locals.title = 'Celebrities & Movies Search Website';
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -30,8 +30,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+//Register Partials
+hbs.registerPartials(__dirname + '/views/partials');
+
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebritiesRouter = require('./routes/celebrities');
+app.use('/', celebritiesRouter);
+
+const moviesRouter = require('./routes/movies');
+app.use('/', moviesRouter);
 
 // catch 404 and render a not-found.hbs template
 app.use((req, res, next) => {
