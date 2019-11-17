@@ -5,7 +5,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const app = require('./app');
 
-const databaseURI = 'mongodb://localhost/starter-code';
+const databaseURI = 'mongodb://localhost/celeb-lab';
 
 mongoose
   .connect(databaseURI, {
