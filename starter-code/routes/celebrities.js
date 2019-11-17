@@ -13,10 +13,20 @@ router.get('/new', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
     Celebrity.findById(req.params.id)
         .then(celebrity => {
-            console.log(celebrity);
             res.render('celebrities/show', {
                 celebrity
             });
+        })
+        .catch(error => {
+            next(error);
+        });
+});
+
+// Handle GET request for website root
+router.post('/:id/delete', (req, res, next) => {
+    Celebrity.findByIdAndRemove(req.params.id)
+        .then(celebrity => {
+            res.redirect('/celebrities');
         })
         .catch(error => {
             next(error);
