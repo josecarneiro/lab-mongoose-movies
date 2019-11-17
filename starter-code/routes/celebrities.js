@@ -64,24 +64,35 @@ router.get('/celebrities/new', (req, res, next) => {
   });
 });
 
-router.get('/celebrities/:id/edit', (req,res,next) => {
+router.get('/celebrities/:id/edit', (req, res, next) => {
+    const celebId = req.params.id;
+    Celebrities.findById(celebId)
+      .then(listOfCelebs => {
+        res.render('celebrities/edit', { listOfCelebs });
+      })
+      .catch(error => {
+        next(error);
+      });
+  });
+  
+
+router.post('/celebrities/:id/edit', (req,res,next) => {
     const celebId = req.params.id
     Post.findByIdAndUpdate(celebId, {
       name: req.body.name,
       occupation: req.body.occupation,
       catchPhrase: req.body.catchPhrase
       })
-    .then (listOfCelebs => {
-        res.render("celebrities/edit", {listOfCelebs});
+    .then (listOfCelebs=> {
+        res.render(`/celebrities/${celebId}`);
     })
     .catch(error => {
         next(error);
       });
     
-
 });
   
-  
+
   
 
 module.exports = router;
