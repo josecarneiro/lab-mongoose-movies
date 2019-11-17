@@ -1,0 +1,9 @@
+<h2>Movie editor</h2>
+{{#with movie}}
+  <form action="/movies/{{id}}" method="POST">
+    <input name='title' type="text" value="{{title}}"/>
+    <input name='genre' type="text" value="{{genre}}"/>
+    <input name='plot' type="text" value="{{plot}}"/>
+    <button>edit</button>
+  </form>
+{{/with}}

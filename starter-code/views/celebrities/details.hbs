@@ -1,0 +1,11 @@
+<h2>Details</h2>
+{{#with celeb}}
+<strong>{{name}}</strong>
+<p>{{occupation}}</p>
+<p> {{catchPhrase}}</p>
+<form action="/celebrities/{{id}}/delete"  method="POST">
+  <button>delete</button></form>
+  <form action="/celebrities/{{id}}/edit"  method="GET">
+  <button>edit</button></form>
+{{/with}}
+<a href="/celebrities">back</a>
