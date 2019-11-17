@@ -19,6 +19,7 @@ app.use(
 // Express View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerPartials(path.join(__dirname,'views/partials'))
 
 app.locals.title = 'Lab Mongoose Movies';
 
@@ -32,6 +33,9 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebs = require('./routes/celebrities');
+app.use('/celebrities', celebs);
 
 // catch 404 and render a not-found.hbs template
 app.use((req, res, next) => {
