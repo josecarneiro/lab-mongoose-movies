@@ -1,0 +1,18 @@
+<h2>Celeb Home Page</h2>
+
+<dir>
+{{#each list}}
+<a href="celebrities/{{ this.celebId }}"> 
+{{ this.name }}
+</a>
+<form></form>
+{{/each}}
+</dir>
+
+<button><a href="/celebrities/new">Add New Celeb</a></button>
+
+{{!-- this.celebID not being read --}}
+
+<form action="celebrities/{{ this.celebId }}/delete" method="POST">
+  <button>Delete Celeb</button>
+</form>
