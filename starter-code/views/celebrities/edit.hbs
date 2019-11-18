@@ -1,0 +1,10 @@
+<h2>This is Edit page</h2>
+
+{{#with details}}
+<form action="/celebrities/{{id}}" method="POST">
+<input type="text" name="name" value="{{name}}"/>
+<input type="text" name="occupation" value="{{occupation}}"/>
+<input type="text" name="catchPhrase" value="{{catchPhrase}}"/>
+<button>Done editing</button>
+</form>
+{{/with}}
