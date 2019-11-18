@@ -7,6 +7,8 @@ const path = require('path');
 
 const app = express();
 
+
+
 // Express View engine setup
 app.use(
   require('node-sass-middleware')({
@@ -32,6 +34,9 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebrity = require('./routes/celebrities')
+app.use('/celebrities', celebrity)
 
 // catch 404 and render a not-found.hbs template
 app.use((req, res, next) => {
