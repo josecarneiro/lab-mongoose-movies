@@ -9,7 +9,7 @@ const celebritySchema = new mongoose.Schema(
         type: String,
     },
     catchPhrase: {
-        typew: String,
+        type: String,
     }
   },
 );

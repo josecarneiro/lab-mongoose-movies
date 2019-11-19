@@ -15,8 +15,9 @@ router.get('/celebrities', (req, res, next) => {
     });
 });
 
-router.get('//celebrities/:id', (req, res, next) => {
-    celebrityId = req.params.celebrityId;
+router.get('/celebrities/:celebrityId', (req, res, next) => {
+    const celebrityId = req.params.celebrityId;
+    console.log("here is the problem:", celebrityId);
     Celebrity.findById(celebrityId)
       .then(celebrity => {
           console.log("this is the problem:" + celebrity)

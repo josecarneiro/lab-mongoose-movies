@@ -1,6 +1,6 @@
-<h2>Celebrities 2</h2>
+<h2>Celebrities</h2>
 {{#each celebrities}}
-<p>{{ name}}</p>
-// this is not working: fix it!!!
-<a href="/celebrities/:id"{{:_id}}>link to a individual celebrity</a>
+<p>{{ this.name}}</p>
+<a href="/celebrities/{{this._id}}">link to a individual celebrity</a>
 {{/each}}
+
