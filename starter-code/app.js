@@ -4,8 +4,8 @@ const favicon = require('serve-favicon');
 const hbs = require('hbs');
 const logger = require('morgan');
 const path = require('path');
-
 const app = express();
+hbs.registerPartials(__dirname + '/views/partials');
 
 // Express View engine setup
 app.use(
@@ -20,7 +20,7 @@ app.use(
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-app.locals.title = 'Lab Mongoose Movies';
+app.locals.title = " leo's database of celebs and movies";
 
 // Middleware Setup
 app.use(logger('dev'));

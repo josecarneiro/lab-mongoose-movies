@@ -1,0 +1,12 @@
+<div class="line-content">
+    <a href="/movies/{{this._id}}">
+        <h5>{{this.name}}</h5>
+    </a>
+
+    <div class="end-btns"><a href="/movies/{{this._id}}/edit"> edit
+            it</a>
+        <form action="/movies/{{this._id}}/delete" method="post"><button>delete it</button></form>
+    </div>
+</div>
+
+{{!-- <button>delete</button> --}}

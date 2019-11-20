@@ -1,0 +1,10 @@
+{{!--  --}}
+{{#with data}}
+<h2>here are the details about <strong>{{this.name}}</strong></h2>
+
+<p><strong>{{this.name}}'s</strong> genre is <i>{{this.genre}} </i>and the plot is <i>"
+        {{this.plot}} "</i></p>
+
+<a href="/movies/{{this._id}}/edit" class="small-link"> edit
+    it</a>
+{{/with}}
