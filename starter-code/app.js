@@ -34,6 +34,9 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 const baseRouter = require('./routes');
 app.use(baseRouter);
 
+const celebrities = require('./routes/celebrities');
+app.use('/celebrities', celebrities);
+
 // catch 404 and render a not-found.hbs template
 app.use((req, res, next) => {
   res.status(404);
