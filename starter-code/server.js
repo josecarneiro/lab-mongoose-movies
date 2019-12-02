@@ -14,6 +14,7 @@ mongoose
   })
   .then(() => {
     console.log('Mongoose connection established.');
+    //app.listen(3000);
     const server = app.listen(process.env.PORT, () => {
       console.log(`Listening on http://localhost:${process.env.PORT}`);
     });
