@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Elvis Presley",
+    "occupation": "Singer",
+    "catchPhrase": "Thank you very much"
+  },
+  {
+    "name": "Paddy McGuiness",
+    "occupation": "Presenter",
+    "catchPhrase": "No likey, no lighty"
+  },
+  {
+    "name": "Thierry Henry",
+    "occupation": "Footballer",
+    "catchPhrase": "Va va voom"
+  }
+]
