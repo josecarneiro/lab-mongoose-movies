@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const Celebrity = require('./../models/celebrity');
+const Movie = require('./../models/movie');
 
 // Handle GET request for website root
 router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+//Celebrities
 router.get('/celebrities', (req, res, next) => {
   Celebrity.find()
     .then(celebrities => res.render('celebrities/index', { celebrities }))
@@ -43,9 +45,47 @@ router.get('/celebrities/:id', (req, res, next) => {
       next(error);
     });
 });
+//Movies
+router.get('/movies', (req, res, next) => {
+  Movie.find()
+    .then(movies => res.render('movies/index', { movies }))
+    .catch(error => {
+      console.log(error);
+      next(error);
+    });
+});
+
+router.get('/movies/create', (req, res, next) => {
+  return res.render('movies/create');
+});
+
+router.get('/movies/:id/edit', (req, res, next) => {
+  const id = req.params.id;
+  Celebrity.findById(id)
+    .then(movie => {
+      return res.render('movies/edit', movie);
+    })
+    .catch(error => {
+      console.log(error);
+      next(error);
+    });
+});
+
+router.get('/movies/:id', (req, res, next) => {
+  const id = req.params.id;
+  Movie.findById(id)
+    .then(movie => {
+      return res.render('movies/show', movie);
+    })
+    .catch(error => {
+      console.log(error);
+      next(error);
+    });
+});
 
 // Handle POST request for website root
-router.post('/create', (req, res, next) => {
+//celebrities
+router.post('/celebrities/create', (req, res, next) => {
   Celebrity.create({
     name: req.body.name,
     occupation: req.body.occupation,
@@ -83,6 +123,51 @@ router.post('/celebrities/:id/edit', (req, res, next) => {
       Celebrity.findById(celebrity._id).then(celebrity =>
         res.render('celebrities/show', celebrity)
       );
+    })
+    .catch(error => {
+      console.log(error);
+      next(error);
+    });
+});
+
+//POST requests for Movies
+router.post('/movies/create', (req, res, next) => {
+  Movie.create({
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot
+  })
+    .then(movieCreated => res.render('movies/show', movieCreated))
+    .catch(error => {
+      console.log(error);
+      next(error);
+    });
+});
+
+router.post('/movies/:id/delete', (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.id)
+    .then(() => Movie.find())
+    .then(movies => res.render('movies/index', { movies }))
+    .catch(error => {
+      console.log(error);
+      next(error);
+    });
+});
+
+router.post('/movies/:id/edit', (req, res, next) => {
+  const id = req.params.id;
+  console.log(id);
+  Movie.findByIdAndUpdate(
+    id,
+    {
+      title: req.body.title,
+      genre: req.body.genre,
+      plot: req.body.plot
+    },
+    { runValidators: true }
+  )
+    .then(movie => {
+      Movie.findById(movie._id).then(movie => res.render('movies/show', movie));
     })
     .catch(error => {
       console.log(error);

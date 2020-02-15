@@ -13,7 +13,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 const Celebrity = require('./models/celebrity');
 
-const data = [
+const celebrityData = [
   {
     name: 'Manuel Rocha',
     occupation: 'Ironhack Bootcamp',
@@ -31,11 +31,41 @@ const data = [
   }
 ];
 
+const Movie = require('./models/movie.js');
+
+const movieData = [
+  {
+    title: 'Fight Club',
+    genre: 'Drama',
+    plot:
+      'An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.'
+  },
+  {
+    title: 'Shutter Island',
+    genre: 'Mystery',
+    plot:
+      'In 1954, a U.S. Marshal investigates the disappearance of a murderer who escaped from a hospital for the criminally insane.'
+  },
+  {
+    title: 'Top Gun',
+    genre: 'Action',
+    plot:
+      'The Top Gun Naval Fighter Weapons School is where the best of the best train to refine their elite flying skills.'
+  }
+];
+
 mongoose
   .connect(MONGODB_URI, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connecting to MongoDB');
-    return Celebrity.insertMany(data);
+    return Celebrity.insertMany(celebrityData);
+  })
+  .then(() => {
+    return Movie.insertMany(movieData);
+  })
+  .then(() => {
+    console.log('Connecting to MongoDB');
+    return Celebrity.insertMany(celebrityData);
   })
   .then(() => {
     return mongoose.disconnect();
