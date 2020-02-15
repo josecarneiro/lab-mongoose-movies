@@ -62,7 +62,7 @@ router.post('/:id/edit', (req,res,next) =>{
     })
     .then((celeb) =>{
         console.log(celeb)
-        res.redirect(`/celebrities/${edCeleb}`)
+        res.redirect(`/celebrities`)
     })
     .catch((error)=>{
         next(error);
