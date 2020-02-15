@@ -70,11 +70,6 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
 
 router.post('/celebrities/:id/edit', (req, res, next) => {
   const id = req.params.id;
-  console.log(id, {
-    name: req.body.name,
-    occupation: req.body.occupation,
-    catchPhrase: req.body.catchPhrase
-  });
   Celebrity.findByIdAndUpdate(
     id,
     {
@@ -84,7 +79,11 @@ router.post('/celebrities/:id/edit', (req, res, next) => {
     },
     { runValidators: true }
   )
-    .then(() => res.redirect(`celebrities/${{ id }}`))
+    .then(celebrity => {
+      Celebrity.findById(celebrity._id).then(celebrity =>
+        res.render('celebrities/show', celebrity)
+      );
+    })
     .catch(error => {
       console.log(error);
       next(error);
