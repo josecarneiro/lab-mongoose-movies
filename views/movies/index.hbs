@@ -1,0 +1,14 @@
+<h2>List of all movies</h2>
+<section class="listing">
+{{#each allMovies}}
+
+<ul>
+  <li><a href='movies/{{_id}}'>{{title}} -></a> <form action="/movies/{{_id}}/delete" method="POST"><button>Delete</button></form>
+    <a href="/movies/{{_id}}/edit">Edit</a></li>
+ 
+</ul>
+{{/each}}
+
+
+<a href="/movies/create">Create your own</a>
+</section>

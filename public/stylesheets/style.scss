@@ -1,7 +1,122 @@
-body {
-  font-family: sans-serif;
+$pink: #f40e82;
+$green: #16f40e;
+
+* {
+  box-sizing: border-box;
 }
 
-a {
-  color: #00b7ff;
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+}
+
+nav {
+  background-color: $pink;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: flex-end;
+  ul {
+    display: flex;
+    li {
+      margin: 0 10px;
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+      color: $green;
+    }
+  }
+}
+
+// .home {
+//   background-image: url('./public/images/bg.jpg');
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+}
+
+.listing {
+  ul {
+    margin: 50px auto;
+  }
+  ul li {
+    display: flex;
+    margin-bottom: 40px;
+    a:first-child {
+      color: $pink;
+      &:hover {
+        text-decoration: underline;
+        color: $green;
+      }
+    }
+  }
+  a,
+  button {
+    font-size: 18px;
+    margin: 0 20px;
+    padding: 20px;
+    text-decoration: none;
+    border: none;
+  }
+
+  a:last-child,
+  button {
+    text-align: center;
+    width: 150px;
+    color: white;
+    background-color: $pink;
+    border-radius: 3px;
+    &:hover {
+      background-color: white;
+      color: $pink;
+      border: 1px solid $pink;
+    }
+  }
+}
+
+.form {
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin: 80px auto;
+    align-items: center;
+    input {
+      margin: 30px 0;
+      width: 85%;
+    }
+    div {
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    button {
+      text-align: center;
+      width: 150px;
+      color: white;
+      background-color: $pink;
+      border-radius: 3px;
+      font-size: 18px;
+      margin: 0 20px;
+      padding: 20px;
+      border: none;
+      &:hover {
+        background-color: white;
+        color: $pink;
+        border: 1px solid $pink;
+      }
+    }
+  }
 }
