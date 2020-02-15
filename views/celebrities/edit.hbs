@@ -1,0 +1,15 @@
+<h2> What is wrong with our celebrity? </h2>
+<p>Let's change {{ name }}</p>
+
+<form action="/celebrities/{{ _id }}/edit" method="POST">
+  <label for="name"> Name </label>
+  <input type="text" name='name' id='nameCreate' placeholder="{{ name }}" required>
+  
+  <label for="occupation"> Occupation </label>
+  <input type="text" name='occupation' id='occupationCreate' placeholder="{{ occupation }}" required>
+  
+  <label for="catchPrase"> Catch Phrase </label>
+  <input type="text" name='catchPhrase' id='catchPraseCreate' placeholder="{{ catchPhrase }}" required>
+
+  <button type="submit"> Submit </button>
+</form>
