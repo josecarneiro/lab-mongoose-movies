@@ -1,13 +1,23 @@
-<h2>Add new Movie</h2>
-<form action="/movies/create" method="POST">
-  <label for="name"> Title </label>
-  <input type="text" name='title' id='titleCreate' placeholder="insert title" required>
-  
-  <label for="genre"> genre </label>
-  <input type="text" name='genre' id='genreCreate' placeholder="insert genre" required>
-  
-  <label for="plot"> Plot </label>
-  <input type="text" name='plot' id='plotCreate' placeholder="insert plot" required>
+<header class='formEdit'>
+  <h2>Add new Movie</h2>
+</header>
 
-  <button type="submit"> Submit </button>
+<form action="/movies/create" method="POST" class='formEdit'>
+  <div class="form-group">
+    <label for="name"> Title </label>
+    <input type="text" name='title' id='titleCreate' placeholder="insert title" required class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="genre"> genre </label>
+    <input type="text" name='genre' id='genreCreate' placeholder="insert genre" required class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="plot"> Plot </label>
+    <input type="text" name='plot' id='plotCreate' placeholder="insert plot" required class="form-control">
+  </div>
+
+
+  <button type="submit" class="btn btn-primary"> Submit </button>
 </form>

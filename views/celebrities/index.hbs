@@ -1,12 +1,8 @@
-<h2>Celebrities</h2>
-
-<ul>
+<ul class="list-group-flush celebIndex">
 {{#each celebrities}}
-
-<li><a href="/celebrities/{{ _id }}">{{name}}</a>
-<li><a href="/celebrities/{{ _id }}/edit"><button> edit </button></a></li>
-<li><form action="/celebrities/{{ _id }}/delete" method="POST"><button> delete </button></form></li>
-<br>
-
+<div class='unit'>
+  <li class="list-group-item"><a href="/celebrities/{{ _id }}">{{name}}</a>
+  <li class="list-group-item"><a href="/celebrities/{{ _id }}/edit" class="btn btn-outline-success"> edit </a></li>
+  <li class="list-group-item"><form action="/celebrities/{{ _id }}/delete" method="POST"><button class="btn btn-outline-danger"> delete </button></form></li>
+</div>
 {{/each}}
-</ul>

@@ -1,10 +1,10 @@
-<h2>Movies</h2>
-
-<ul>
+<ul class="list-group-flush celebIndex">
   {{#each movies}}
-    <li><a href="/movies/{{ _id }}">{{ title }}</a></li>
-    <li><a href="/movies/{{ _id }}"><button> edit </button></a></li>
-    <li><form action="/movies/{{ _id }}/delete" method="POST"><button> delete </button></form></li>
-    <br>
+  <div class='unit'>
+    <li class="list-group-item"><a href="/movies/{{ _id }}">{{ title }}</a></li>
+    <li class="list-group-item"><a href="/movies/{{ _id }}/edit" class="btn btn-outline-success"> edit </a></li>
+    <li class="list-group-item"><form action="/movies/{{ _id }}/delete" method="POST"><button class="btn btn-outline-danger"> delete </button></form></li>
+  </div>
   {{/each}}
 </ul>
+

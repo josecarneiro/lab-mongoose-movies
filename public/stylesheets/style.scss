@@ -1,7 +1,53 @@
 body {
   font-family: sans-serif;
+  background-color: #f8f9fa;
 }
 
 a {
   color: #00b7ff;
+}
+
+.celebrities {
+  text-align: center;
+  margin: 10% auto;
+  button {
+    width: 20%;
+    margin-right: 5%;
+  }
+}
+.movies {
+  text-align: center;
+  button {
+    width: 20%;
+    margin-right: 5%;
+  }
+}
+
+.celebIndex {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  .unit {
+    width: 30%;
+    a {
+      width: 20%;
+    }
+    button {
+      width: 20%;
+    }
+  }
+}
+
+.formEdit {
+  width: 90%;
+  margin: 0% auto;
+  h1,
+  p {
+    margin: 2.5%;
+  }
+}
+
+.show {
+  margin: 10% auto;
+  text-align: center;
 }

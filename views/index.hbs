@@ -1,8 +1,13 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+{{!-- <h1>{{title}}</h1> --}}
+{{!-- <p>Welcome to {{title}}</p> --}}
+<div class="index">
+  <section class="celebrities">
+    <a href="/celebrities"><button type="button" class="btn btn-outline-primary"> List of celebrities </button></a>
+    <a href="/celebrities/create"><button type="button" class="btn btn-outline-primary"> Create a celebrity </button></a>
+  </section>
 
-<a href="/celebrities"><button> List of celebrities </button></a>
-<a href="/celebrities/create"><button> Create a celebrity </button></a>
-
-<a href="/movies"><button> List of movies </button></a>
-<a href="/movies/create"><button> Add a movie </button></a>
+  <section class="movies">
+    <a href="/movies"><button type="button" class="btn btn-outline-primary"> List of movies </button></a>
+    <a href="/movies/create"><button type="button" class="btn btn-outline-primary"> Add a movie </button></a>
+  </section>
+</div>

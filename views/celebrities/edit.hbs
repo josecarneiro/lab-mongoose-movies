@@ -1,15 +1,22 @@
-<h2> What is wrong with our celebrity? </h2>
-<p>Let's change {{ name }}</p>
-
-<form action="/celebrities/{{ _id }}/edit" method="POST">
+<header class='formEdit'>
+  <h2> What is wrong with our celebrity? </h2>
+  <p>Let's change {{ name }}</p>
+</header>
+<form action="/celebrities/{{ _id }}/edit" method="POST" class='formEdit'>
+  <div class="form-group">
   <label for="name"> Name </label>
-  <input type="text" name='name' id='nameCreate' placeholder="{{ name }}" required>
+  <input type="text" name='name' id='nameCreate' placeholder="{{ name }}" required class="form-control">
+  </div>
   
+  <div class="form-group">
   <label for="occupation"> Occupation </label>
-  <input type="text" name='occupation' id='occupationCreate' placeholder="{{ occupation }}" required>
-  
-  <label for="catchPrase"> Catch Phrase </label>
-  <input type="text" name='catchPhrase' id='catchPraseCreate' placeholder="{{ catchPhrase }}" required>
+  <input type="text" name='occupation' id='occupationCreate' placeholder="{{ occupation }}" required class="form-control">
+  <small id="help" class="form-text text-muted">Only one please.</small>
+  </div>
 
-  <button type="submit"> Submit </button>
+  <div class="form-group">
+  <label for="catchPrase"> Catch Phrase </label>
+  <input type="text" name='catchPhrase' id='catchPraseCreate' placeholder="{{ catchPhrase }}" required class="form-control">
+  </div>
+  <button type="submit" class="btn btn-primary"> Submit </button>
 </form>

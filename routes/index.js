@@ -61,7 +61,7 @@ router.get('/movies/create', (req, res, next) => {
 
 router.get('/movies/:id/edit', (req, res, next) => {
   const id = req.params.id;
-  Celebrity.findById(id)
+  Movie.findById(id)
     .then(movie => {
       return res.render('movies/edit', movie);
     })

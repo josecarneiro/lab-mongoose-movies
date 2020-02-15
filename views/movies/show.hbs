@@ -1,4 +1,8 @@
-<h2>{{ title }}</h2>
-<h3>{{ genre }}</h3>
-<p>{{ plot }}</p>
-<a href="/movies"><button> List of movies </button></a>
+<div class="card show" style="width: 36rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ genre }}</h6>
+    <p class="card-text">{{ plot }}</p>
+    <a href="/movies" class="btn btn-outline-primary card-link"> List of movies</a>
+  </div>
+</div>
