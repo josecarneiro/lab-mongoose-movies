@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const Celebrity = require('./../models/celebrity');
+const Movie = require('./../models/movie');
 
 router.get('/', (req, res, next) => {
-  Celebrity.find()
-    .then(celebrities => {
-      const data = { celebrities };
-      res.render('./celebrities/index', data);
+  Movie.find()
+    .then(movies => {
+      res.render('./movies/index', { movies });
     })
     .catch(error => {
       next(error);
@@ -14,29 +13,29 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/create', (req, res, next) => {
-  res.render('celebrities/create');
+  res.render('movies/create');
 });
 
 router.post('/create', (req, res, next) => {
   const data = {
-    name: req.body.name,
-    occupation: req.body.occupation,
-    catchPhrase: req.body.catchPhrase
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot
   };
 
-  Celebrity.create(data)
-    .then(celebrity => {
-      const id = celebrity._id;
+  Movie.create(data)
+    .then(movie => {
+      const id = movie._id;
       res.redirect('/');
     })
     .catch(error => {
-      res.render('celebrities/create');
+      res.render('movies/create');
     });
 });
 
 router.post('/:id/delete', (req, res, next) => {
   const id = req.params.id;
-  Celebrity.findByIdAndRemove(id)
+  Movie.findByIdAndRemove(id)
     .then(() => {
       res.redirect('/');
     })
@@ -48,9 +47,9 @@ router.post('/:id/delete', (req, res, next) => {
 router.get('/:id/edit', (req, res, next) => {
   const id = req.params.id;
 
-  Celebrity.findById(id)
-    .then(celebrity => {
-      res.render('celebrities/edit', { celebrity });
+  Movie.findById(id)
+    .then(movie => {
+      res.render('movies/edit', { movie });
     })
     .catch(error => {
       next(error);
@@ -60,12 +59,12 @@ router.get('/:id/edit', (req, res, next) => {
 router.post('/:id/edit', (req, res, next) => {
   const id = req.params.id;
   const data = {
-    name: req.body.name,
-    occupation: req.body.occupation,
-    catchPhrase: req.body.catchPhrase
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot
   };
 
-  Celebrity.findByIdAndUpdate(id, data)
+  Movie.findByIdAndUpdate(id, data)
     .then(() => {
       res.redirect('/');
     })
@@ -76,10 +75,9 @@ router.post('/:id/edit', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
   const id = req.params.id;
-  Celebrity.findById(id)
-    .then(celebrity => {
-      const data = { celebrity };
-      res.render('celebrities/show', data);
+  Movie.findById(id)
+    .then(movie => {
+      res.render('movies/show', { movie });
     })
     .catch(error => {
       next(error);

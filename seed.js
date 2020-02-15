@@ -7,14 +7,12 @@
 
 const dotenv = require('dotenv');
 dotenv.config();
-
 const mongoose = require('mongoose');
-
 const MONGODB_URI = process.env.MONGODB_URI;
-
 const Celebrity = require('./models/celebrity');
+const Movie = require('./models/movie');
 
-let arr = [
+let celebArr = [
   {
     name: 'Ashley Graham',
     occupation: 'model',
@@ -32,6 +30,27 @@ let arr = [
   }
 ];
 
+let moviesArr = [
+  {
+    title: 'American Beauty Star',
+    genre: 'Reality show',
+    plot:
+      'Twelve contestants who belong to different aspects of the fashion industry compete in a series of tasks hoping to outdo one another.'
+  },
+  {
+    title: 'Finding Nemo',
+    genre: 'Adventure',
+    plot:
+      'After his son gets abducted in the Great Barrier Reef and is despatched to Sydney, a meek clownfish embarks on a journey to bring him home.'
+  },
+  {
+    title: `Inside Bill's Brain`,
+    genre: 'Documentary',
+    plot:
+      'This three-part docuseries explores the mind and motivations of the celebrated tech visionary, business leader and philanthropist.'
+  }
+];
+
 mongoose
   .connect(MONGODB_URI, {
     useCreateIndex: true,
@@ -42,10 +61,12 @@ mongoose
     console.log('Connected to MongoDB');
   })
   .then(() => {
-    return Celebrity.insertMany(arr);
+    // return Celebrity.insertMany(celebArr);
+    return Movie.insertMany(moviesArr);
   })
   .then(() => {
-    console.log("Celebrity model's created");
+    // console.log("Celebrity model created");
+    console.log('Movie model created');
   })
   .then(() => {
     return mongoose.disconnect();
