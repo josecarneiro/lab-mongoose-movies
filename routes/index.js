@@ -12,8 +12,12 @@ router.get('/celebrities', (req, res, next) => {
     .then(celebrities => res.render('celebrities/index', { celebrities }))
     .catch(error => {
       console.log(error);
-      res.send('Error');
+      next(error);
     });
+});
+
+router.get('/celebrities/create', (req, res, next) => {
+  return res.render('celebrities/create');
 });
 
 router.get('/celebrities/:id', (req, res, next) => {
@@ -24,7 +28,21 @@ router.get('/celebrities/:id', (req, res, next) => {
     })
     .catch(error => {
       console.log(error);
-      res.send('Error');
+      next(error);
+    });
+});
+
+// Handle POST request for website root
+router.post('/create', (req, res, next) => {
+  Celebrity.create({
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  })
+    .then(celebrityCreated => res.render('celebrities/show', celebrityCreated))
+    .catch(error => {
+      console.log(error);
+      next(error);
     });
 });
 
