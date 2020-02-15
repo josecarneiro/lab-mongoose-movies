@@ -1,6 +1,46 @@
-// You'll use this script to add some initial data to your database
-// Remember, before performing any operations you need to connect to the database,
-// and disconnect when you're done
 
-// You should be running this script once with `node seed.js` to add the records you need to the database,
-// not continuously, as we'll do with our express server
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+
+
+const mongoose = require('mongoose');
+
+const MONGODB_URI = process.env.MONGODB_URI;
+
+//Import Schema Models
+const Celebrities = require('./models/celebrity');
+
+
+let initCeleb = [
+    {name: "Sylvester Stallone",
+     occupation: "Actor",
+     catchPhrase: "Adrian!!!!"
+     },
+     {name: "Bruce Willis",
+     occupation: "Actor",
+     catchPhrase: "Yippee-Ki-Yay, mothertrucker!"
+     },
+     {name: "arnold schwarzenegger",
+     occupation: "Actor",
+     catchPhrase: "Hasta la vista baby!"
+     }
+ ];
+
+mongoose
+  .connect(MONGODB_URI, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connecting to MongoDB');
+    console.log(initCeleb)
+    return Celebrities.insertMany(initCeleb);
+  })
+  .then(() => {
+    return mongoose.disconnect();
+  })
+  .then(() => {
+    console.log('Disconnecte to MongoDB');
+  })
+  .catch(error => {
+    console.log(error);
+  });
