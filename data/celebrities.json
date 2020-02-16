@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Oprah Winfrey",
+    "occupation": "Talk Show Host",
+    "catchPhrase": "Aha! moment"
+  },
+
+  {
+    "name": "Rupaul",
+    "occupation": "Actor",
+    "catchPhrase": "Don't fuck it up"
+  },
+
+  {
+    "name": "Britney Spears",
+    "occupation": "Performer",
+    "catchPhrase": "It's Britney, bitch"
+  }
+]

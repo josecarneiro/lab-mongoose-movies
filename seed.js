@@ -15,13 +15,31 @@ const mongoose = require('mongoose');
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
-const Celebrities = require('./models/celebrity');
+// const Celebrities = require('./models/celebrity');
+
+// mongoose
+//   .connect(MONGODB_URI, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true })
+//   .then(() => {
+//     console.log('Connecting to MongoDB', data);
+//     return Celebrities.create(data);
+//   })
+//   .then(() => {
+//     return mongoose.disconnect();
+//   })
+//   .then(() => {
+//     console.log('Disconnecte to MongoDB');
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
+
+const Movies = require('./models/movie');
 
 mongoose
   .connect(MONGODB_URI, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connecting to MongoDB', data);
-    return Celebrities.create(data);
+    return Movies.create(data);
   })
   .then(() => {
     return mongoose.disconnect();

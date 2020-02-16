@@ -1,19 +1,19 @@
 [
   {
-    "name": "Oprah Winfrey",
-    "occupation": "Talk Show Host",
-    "catchPhrase": "Aha! moment"
+    "title": "Parasite",
+    "genre": "Dark Comedy",
+    "plot": "Greed, class discrimination and a mysterious interloper threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan."
   },
 
   {
-    "name": "Rupaul",
-    "occupation": "Actor",
-    "catchPhrase": "Don't fuck it up"
+    "title": "Joker",
+    "genre": "Drama",
+    "plot": "In Gotham’s fractured society, a young man longs to be a stand-up comic, but finds the joke is always on him. Caught in a cycle of apathy, cruelty and ultimately, betrayal, the comedian makes one bad decision after another, bringing about a chain reaction of escalating events."
   },
 
   {
-    "name": "Britney Spears",
-    "occupation": "Performer",
-    "catchPhrase": "It's Britney, bitch"
+    "title": "Pain and Glory",
+    "genre": "Drama",
+    "plot": "Salvador Mallo, a renowned film director in physical decline, revisits his past: his childhood with his mother, his first desire, his first adult love and breakup, and the early discovery of cinema."
   }
 ]

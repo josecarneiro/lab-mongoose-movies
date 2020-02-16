@@ -28,21 +28,17 @@ router.post('/:id/delete', (req, res, next) => {
     });
 });
 
-router.get('/:id/edit', (req, res) => {
-  res.render('celebrities/edit');
+router.get('/:id/edit', (req, res, next) => {
+  const id = req.params.id;
+
+  Celebrities.findById(id)
+    .then(celebrity => {
+      res.render('celebrities/edit', { celebrity });
+    })
+    .catch(() => {
+      next();
+    });
 });
-
-// router.get('/:id/edit', (req, res, next) => {
-//   const id = req.params.id;
-//   Celebrities.findById(id)
-//     .then(celebrity => {
-//       res.render('/edit', { celebrity });
-//     })
-
-//     .catch(() => {
-//       next();
-//     });
-// });
 
 router.post('/:id/edit', (req, res, next) => {
   const id = req.params.id;
