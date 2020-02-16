@@ -1,0 +1,19 @@
+<h1>Single works</h1>
+<p>
+  {{ celebrity.name }}
+</p>
+
+<p>
+  {{celebrity.occupation}}
+</p>
+
+<p>
+  {{celebrity.catchPhrase}}
+</p>
+
+<a href="/celebrities/{{  celebrity._id }}/edit">Edit Celebrity</a>
+
+<form action="/celebrities/{{ celebrity._id }}/delete" method="POST">
+  <button>Delete</button>
+</form>
+
