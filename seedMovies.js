@@ -10,30 +10,31 @@ const mongoose = require('mongoose');
 const MONGODB_URI = process.env.MONGODB_URI;
 
 //Import Schema Models
-const Celebrities = require('./models/celebrity');
+const Movies = require('./models/movie');
 
 
-let initCeleb = [
-    {name: "Sylvester Stallone",
-     occupation: "Actor",
-     catchPhrase: "Adrian!!!!"
+let initMovie = [
+    {title: "Rambo",
+     genre: "Action",
+     plot: "A guy in vietnam"
      },
-     {name: "Bruce Willis",
-     occupation: "Actor",
-     catchPhrase: "Yippee-Ki-Yay, mothertrucker!"
+     {title: "Die Hard",
+     genre: "Action",
+     plot: "A guy in a Building"
      },
-     {name: "arnold schwarzenegger",
-     occupation: "Actor",
-     catchPhrase: "Hasta la vista baby!"
-     }
+     {title: "Terminator",
+     genre: "Action",
+     plot: "A guy from the future"
+     },
+    
  ];
 
 mongoose
   .connect(MONGODB_URI, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connecting to MongoDB');
-    console.log(initCeleb)
-    return Celebrities.insertMany(initCeleb);
+    console.log(initMovie)
+    return Movies.insertMany(initMovie);
   })
   .then(() => {
     return mongoose.disconnect();
