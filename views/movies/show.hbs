@@ -6,3 +6,33 @@
     <a href="/movies" class="btn btn-outline-primary card-link"> List of movies</a>
   </div>
 </div>
+
+<section class='formEdit'>
+  <h4 class='text-secondary'>Reviews</h2>
+  <div class="card">
+    <div class="card-body">
+      {{#each reviews}}
+      <div class="review-item">
+        <p class="card-text">{{this.comments}}</p>
+        <h6 class="card-subtitle mb-2 text-muted">{{this.user}}</h6>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+
+  <form action="/reviews/add?movie_id={{ _id }}" method="post">
+  <h5 class="form-text text-muted"> Add a review </h5>
+    <div class="form-group">
+      <label for="user" class='text-secondary'>User:</label>
+      <input type="text" name="user" class="form-control"/>
+    </div>
+
+   <div class="form-group">
+      <label for="comments" class='text-secondary'>Comments:</label>
+      <textarea type="text" name="comments" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary card-link">ADD</button>
+  </form>
+</section>

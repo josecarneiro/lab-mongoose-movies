@@ -153,5 +153,23 @@ router.post('/movies/:id/edit', (req, res, next) => {
       next(error);
     });
 });
+router.post('/reviews/add', (req, res, next) => {
+  const { user, comments } = req.body;
+  Movie.update(
+    {
+      _id: req.query.movie_id
+    },
+    {
+      $push: { reviews: { user, comments } }
+    }
+  )
+    .then(movie => {
+      res.redirect('/movies');
+    })
+    .catch(error => {
+      console.log(error);
+      next(error);
+    });
+});
 
 module.exports = router;
