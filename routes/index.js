@@ -86,11 +86,8 @@ router.get('/movies/:id', (req, res, next) => {
 // Handle POST request for website root
 //celebrities
 router.post('/celebrities/create', (req, res, next) => {
-  Celebrity.create({
-    name: req.body.name,
-    occupation: req.body.occupation,
-    catchPhrase: req.body.catchPhrase
-  })
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.create({ name, occupation, catchPhrase })
     .then(celebrityCreated => res.render('celebrities/show', celebrityCreated))
     .catch(error => {
       console.log(error);
@@ -110,15 +107,8 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
 
 router.post('/celebrities/:id/edit', (req, res, next) => {
   const id = req.params.id;
-  Celebrity.findByIdAndUpdate(
-    id,
-    {
-      name: req.body.name,
-      occupation: req.body.occupation,
-      catchPhrase: req.body.catchPhrase
-    },
-    { runValidators: true }
-  )
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.findByIdAndUpdate(id, { name, occupation, catchPhrase }, { runValidators: true })
     .then(celebrity => {
       Celebrity.findById(celebrity._id).then(celebrity =>
         res.render('celebrities/show', celebrity)
@@ -132,11 +122,8 @@ router.post('/celebrities/:id/edit', (req, res, next) => {
 
 //POST requests for Movies
 router.post('/movies/create', (req, res, next) => {
-  Movie.create({
-    title: req.body.title,
-    genre: req.body.genre,
-    plot: req.body.plot
-  })
+  const { title, genre, plot } = req.body;
+  Movie.create({ title, genre, plot })
     .then(movieCreated => res.render('movies/show', movieCreated))
     .catch(error => {
       console.log(error);
@@ -156,16 +143,8 @@ router.post('/movies/:id/delete', (req, res, next) => {
 
 router.post('/movies/:id/edit', (req, res, next) => {
   const id = req.params.id;
-  console.log(id);
-  Movie.findByIdAndUpdate(
-    id,
-    {
-      title: req.body.title,
-      genre: req.body.genre,
-      plot: req.body.plot
-    },
-    { runValidators: true }
-  )
+  const { title, genre, plot } = req.body;
+  Movie.findByIdAndUpdate(id, { title, genre, plot }, { runValidators: true })
     .then(movie => {
       Movie.findById(movie._id).then(movie => res.render('movies/show', movie));
     })
