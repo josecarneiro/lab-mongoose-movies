@@ -1,0 +1,15 @@
+<h1>Edit {{ celebrity.name }}</h1>
+
+
+<form action="" method="POST">
+  <label for="name">name</label>
+  <input type="text" name="name" id="name" placeholder="{{ celebrity.name }}" required minlength="5"/>
+
+  <label for="occupation">Occupation</label>
+  <input type="text" name="occupation" id="occupation" placeholder="{{celebrity.occupation}}" />
+
+  <label for="catchPhrase">catchPhrase</label>
+  <input type="text" name="catchPhrase" id="catchPhrase" placeholder="{{celebrity.catchPhrase}}" />
+  
+  <button>Save Celebrity</button>
+</form>
