@@ -75,7 +75,6 @@ router.post('/:id', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   Celebrity.findById(req.params.id)
     .then(celebrity => {
-      console.log(celebrity);
       res.render('celebrities/show', { celebrity });
     })
     .catch(error => {
