@@ -36,6 +36,33 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 const baseRouter = require('./routes');
 app.use('/', baseRouter);
 
+const celebRouter = require('./routes/celebrities');
+app.use('/celebrities', celebRouter);
+
+const createRouter = require('./routes/celebrities');
+app.use('/celebrities/create', createRouter);
+
+const deleteRouter = require('./routes/celebrities');
+app.use('/celebrities/delete', deleteRouter);
+
+const editRouter = require('./routes/celebrities');
+app.use('/celebrities/edit', editRouter);
+
+// movies routers
+
+const moviesRouter = require('./routes/movies');
+app.use('/movies', moviesRouter);
+
+
+const createMovieRouter = require('./routes/movies');
+app.use('/movies/crete', createMovieRouter);
+
+const deleteMovieRouter = require('./routes/movies');
+app.use('/movies/delete', deleteMovieRouter);
+
+const editMovieRouter = require('./routes/movies');
+app.use('/movies/edit', editMovieRouter);
+
 // catch 404 and render a not-found.hbs template
 app.use((req, res, next) => {
   res.status(404);

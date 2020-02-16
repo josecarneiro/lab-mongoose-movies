@@ -6,16 +6,29 @@
     "dev": "nodemon ./server -e js,json,hbs,scss,css"
   },
   "dependencies": {
-    "cookie-parser": "^1.4.3",
+    "cookie-parser": "^1.4.4",
     "dotenv": "^8.2.0",
-    "express": "^4.16.3",
-    "hbs": "^4.0.1",
-    "mongoose": "^5.2.10",
-    "morgan": "^1.9.0",
+    "express": "^4.17.1",
+    "hbs": "^4.1.0",
+    "mongoose": "^5.9.0",
+    "morgan": "^1.9.1",
     "node-sass-middleware": "^0.11.0",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"
-  }
+  },
+  "description": "![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myriankatto/lab-mongoose-movies.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/myriankatto/lab-mongoose-movies/issues"
+  },
+  "homepage": "https://github.com/myriankatto/lab-mongoose-movies#readme"
 }
