@@ -1,9 +1,7 @@
 <h2> About </h2>
 
-{{#each celebrity}}
-  <h1>{{ name }}</h1>
-  <p>{{ occupation }}</p>
-  <span>{{ catchPhrase }}</span>
+  <h1>{{ celebrity.name }}</h1>
+  <p>{{ celebrity.occupation }}</p>
+  <p>{{ celebrity.catchPhrase }}</p>
 
-
-{{/each}}
+<a href="/celebrities/{{ celebrity._id }}/edit">Edit Celebrity</a>
