@@ -1,13 +1,16 @@
 <h2>Celebrity List</h2>
 
+<section class="layout-list">
 {{#each celebrities}}
-
+<div>
 <a href="/celebrities/{{_id}}">{{name}}</a>
 <form action="/celebrities/{{_id }}/delete" method="POST">
   <button>Delete</button>
 </form>
-<br/>
+</div>
 
 {{/each}}
 
 <a href="/celebrities/create">Add your own celebrity!</a>
+
+</section>

@@ -1,11 +1,13 @@
 <h2>Edit celebrity information</h2>
 
-<form action="/celebrities/{{celebrity._id}}" method="POST">
-  <label for="name">Name</label>
-  <input type="text" name="name" id="name" placeholder="Name" value="{{celebrity.name}}"/>
-  <label for="occupation">Occupation</label>
-  <input type="text" name="occupation" id="occupation" placeholder="Occupation" value="{{celebrity.occupation}}" />
-  <label for="catchPhrase">catchphrase</label>
-  <input type="text" name="catchPhrase" id="catchPhrase" placeholder="Catchphrase" value="{{celebrity.catchPhrase}}"/>
-  <button>Edit Celebrity</button>
-</form>
+<section class="form">
+  <form action="/celebrities/{{celebrity._id}}" method="POST">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" placeholder="Name" value="{{celebrity.name}}"/>
+    <label for="occupation">Occupation</label>
+    <input type="text" name="occupation" id="occupation" placeholder="Occupation" value="{{celebrity.occupation}}" />
+    <label for="catchPhrase">Catchphrase</label>
+    <input type="text" name="catchPhrase" id="catchPhrase" placeholder="Catchphrase" value="{{celebrity.catchPhrase}}"/>
+    <button>Edit Celebrity</button>
+  </form>
+</section>
