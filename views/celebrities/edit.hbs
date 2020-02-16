@@ -1,0 +1,7 @@
+<h2>Edit Celebrity Here</h2>
+<form action="/celebrities/{{celeb._id}}/edit" method="POST">
+    <textarea name="name" id="" cols="30" rows="4" placeholder="Name?">{{celeb.name}}</textarea>
+    <textarea name="occupation" id="" cols="30" rows="4" placeholder="Occupation?">{{celeb.occupation}}</textarea>
+    <textarea name="catchphrase" id="" cols="30" rows="10" placeholder="Catch Phrase!">{{celeb.catchPhrase}}</textarea>
+    <button>Edit Celebrity</button>
+</form> 
