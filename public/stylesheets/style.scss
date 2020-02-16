@@ -1,7 +1,25 @@
 body {
-  font-family: sans-serif;
+	font-family: sans-serif;
 }
 
 a {
-  color: #00b7ff;
+	color: #00b7ff;
+}
+
+.navbar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 90vw;
+	margin: 1em auto;
+}
+
+.navbar a {
+	text-decoration: none;
+	color: black;
+}
+
+.navbar .links a {
+	padding: 0.7em;
 }

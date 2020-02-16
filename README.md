@@ -55,7 +55,7 @@ After forking and cloning the project, you will have to add a `.env` file with s
 ```
 NODE_ENV=development
 PORT=3000
-MONGODB_URI=mongodb://localhost:27017/lab-mongoose-movies
+MONGODB_=mongodb://localhost:27017/lab-mongoose-movies
 ```
 
 And you have to install all the dependencies:
