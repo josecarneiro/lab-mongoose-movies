@@ -1,7 +1,12 @@
 <h2> About </h2>
 
+<div class="list">
+
+
   <h1>{{ movie.title }}</h1>
-  <p>{{ movie.genre }}</p>
+  <span>{{ movie.genre }}</span>
   <p>{{ movie.plot }}</p>
 
 <a href="/movies/{{ movie._id }}/edit">Edit Movie</a>
+
+</div>
