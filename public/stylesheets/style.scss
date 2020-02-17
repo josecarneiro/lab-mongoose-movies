@@ -38,11 +38,13 @@ nav {
   }
 }
 
-// .home {
-//   background-image: url('./public/images/bg.jpg');
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
+.home {
+  background-image: url('../images/bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+  padding-top: 20px;
 }
 
 .listing {
