@@ -155,7 +155,7 @@ router.post('/movies/:id/edit', (req, res, next) => {
 });
 router.post('/reviews/add', (req, res, next) => {
   const { user, comments } = req.body;
-  Movie.update(
+  Movie.findByIdAndUpdate(
     {
       _id: req.query.movie_id
     },
@@ -164,12 +164,37 @@ router.post('/reviews/add', (req, res, next) => {
     }
   )
     .then(movie => {
-      res.redirect('/movies');
+      Movie.findById(movie._id).then(movie => {
+        res.render('movies/show', movie);
+      });
     })
     .catch(error => {
       console.log(error);
       next(error);
     });
 });
+
+//on production
+router.post('/review/:id/deleteReview', (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.id)
+    .then(() => Movie.find())
+    .then(movies => res.render('movies/index', { movies }))
+    .catch(error => {
+      console.log(error);
+      next(error);
+    });
+});
+//   const id = req.params.id;
+//   console.log('should see sth', id);
+//   Movie.findById(id) //not coming with id
+//     .then(movie => {
+//       console.log('should see sth', movie);
+//       // return res.redirect('movies/show', movie);
+//     })
+//     .catch(error => {
+//       console.log(error);
+//       next(error);
+//     });
+// });
 
 module.exports = router;
