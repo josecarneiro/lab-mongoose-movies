@@ -1,0 +1,9 @@
+<h2>Single Movie</h2>
+{{#each data}}
+<p>{{title}}</p>
+<p>{{genre}}</p>
+<p>{{plot}}</p>
+ 
+{{/each}}
+<form action="/movie/{{data.id}}/edit">
+  <button>Edit</button></form>
