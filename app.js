@@ -7,10 +7,9 @@ const path = require('path');
 const app = express();
 
 // Express View engine setup
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
-hbs.registerPartials(path.join(__dirname, 'views/partials'));
 
 // Express View engine setup
 app.use(

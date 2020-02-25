@@ -4,17 +4,26 @@
 
 <form action="/celebrities/create" method="POST"class='formEdit'>
   <div class="form-group">
-  <label for="name"> Name </label>
-  <input type="text" name='name' id='nameCreate' placeholder="insert name" required class="form-control">
+    <label for="name"> Name </label>
+    <input type="text" name='name' id='nameCreate' placeholder="insert name" required class="form-control">
   </div>
   <div class="form-group">
-  <label for="occupation"> Occupation </label>
-  <input type="text" name='occupation' id='occupationCreate' placeholder="insert occupation" required class="form-control">
+    <label for="occupation"> Occupation </label>
+    <input type="text" name='occupation' id='occupationCreate' placeholder="insert occupation" required class="form-control">
   </div>
   
   <div class="form-group">
-  <label for="catchPrase"> Catch Phrase </label>
-  <input type="text" name='catchPhrase' id='catchPraseCreate' placeholder="insert catch phrase" required class="form-control">
+    <label for="catchPrase"> Catch Phrase </label>
+    <input type="text" name='catchPhrase' id='catchPraseCreate' placeholder="insert catch phrase" required class="form-control">
   </div>
+
+  <div class="form-group">
+    <label for="Latitude Longitude"> Location </label>
+    <input type="number" placeholder="Latitude" name="latitude" step="any" class="form-control">
+    <br>
+    <input type="number" placeholder="Longitude" name="longitude" step="any" class="form-control">
+  </div>
+
   <button type="submit" class="btn btn-primary"> Submit </button>
+  
 </form>

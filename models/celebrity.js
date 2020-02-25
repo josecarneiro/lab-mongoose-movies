@@ -9,6 +9,19 @@ const celebritySchema = new mongoose.Schema({
   catchPhrase: {
     type: String,
     required: true
+  },
+  location: {
+    type: {
+      type: String,
+      default: 'Point'
+    },
+    coordinates: [
+      {
+        type: Number,
+        min: -180,
+        max: 180
+      }
+    ]
   }
 });
 

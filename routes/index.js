@@ -26,6 +26,7 @@ router.get('/celebrities/:id/edit', (req, res, next) => {
   const id = req.params.id;
   Celebrity.findById(id)
     .then(celebrity => {
+      console.log(celebrity);
       return res.render('celebrities/edit', celebrity);
     })
     .catch(error => {
@@ -86,9 +87,18 @@ router.get('/movies/:id', (req, res, next) => {
 // Handle POST request for website root
 //celebrities
 router.post('/celebrities/create', (req, res, next) => {
-  const { name, occupation, catchPhrase } = req.body;
-  Celebrity.create({ name, occupation, catchPhrase })
-    .then(celebrityCreated => res.render('celebrities/show', celebrityCreated))
+  const { name, occupation, catchPhrase, latitude, longitude } = req.body;
+  Celebrity.create({
+    name,
+    occupation,
+    catchPhrase,
+    location: {
+      coordinates: [longitude, latitude]
+    }
+  })
+    .then(celebrityCreated => {
+      res.render('celebrities/show', celebrityCreated);
+    })
     .catch(error => {
       console.log(error);
       next(error);
@@ -107,8 +117,19 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
 
 router.post('/celebrities/:id/edit', (req, res, next) => {
   const id = req.params.id;
-  const { name, occupation, catchPhrase } = req.body;
-  Celebrity.findByIdAndUpdate(id, { name, occupation, catchPhrase }, { runValidators: true })
+  const { name, occupation, catchPhrase, latitude, longitude } = req.body;
+  Celebrity.findByIdAndUpdate(
+    id,
+    {
+      name,
+      occupation,
+      catchPhrase,
+      location: {
+        coordinates: [longitude, latitude]
+      }
+    },
+    { runValidators: true }
+  )
     .then(celebrity => {
       Celebrity.findById(celebrity._id).then(celebrity =>
         res.render('celebrities/show', celebrity)
@@ -184,17 +205,5 @@ router.post('/review/:id/deleteReview', (req, res, next) => {
       next(error);
     });
 });
-//   const id = req.params.id;
-//   console.log('should see sth', id);
-//   Movie.findById(id) //not coming with id
-//     .then(movie => {
-//       console.log('should see sth', movie);
-//       // return res.redirect('movies/show', movie);
-//     })
-//     .catch(error => {
-//       console.log(error);
-//       next(error);
-//     });
-// });
 
 module.exports = router;
