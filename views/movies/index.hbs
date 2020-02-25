@@ -1,0 +1,18 @@
+<h2>Movie List</h2>
+
+<section class="layout-list">
+
+{{#each movies}}
+<div>
+  <a href="/movies/{{_id}}">{{title}}</a>
+  <form action="/movies/{{_id }}/delete" method="POST">
+    <button>Delete</button>
+  </form>
+</div>
+
+
+{{/each}}
+
+<a href="/movies/create">Add your own movie!</a>
+
+</section>
