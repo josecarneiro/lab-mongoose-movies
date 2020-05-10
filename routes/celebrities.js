@@ -18,6 +18,32 @@ celebritiesRouter.get('/', (req, res, next) => {
     });
 });
 
+//adding new celebrities
+celebritiesRouter.get('/create', (req, res) => {
+  console.log('Celebritiy-create page');
+  res.render('celebrities/create');
+});
+
+celebritiesRouter.post('/create', (req, res, next) => {
+  console.log('endpoint create celebrity');
+  const name = req.body.name;
+  const occupation = req.body.occupation;
+  const catchPhrase = req.body.catchPhrase;
+
+  return Celebrity.create({
+    name,
+    occupation,
+    catchPhrase,
+  })
+    .save()
+    .then((celebrities) => {
+      res.redirect('/');
+    })
+    .catch((error) => {
+      res.render('celebrities/create');
+    });
+});
+
 //get a specific celeb
 celebritiesRouter.get('/:id', (req, res, next) => {
   const id = req.params.id;
@@ -30,25 +56,6 @@ celebritiesRouter.get('/:id', (req, res, next) => {
     .catch((error) => {
       next(error);
     });
-});
-
-//adding new celebrities
-celebritiesRouter.get('/create', (req, res) => {
-  console.log('Celebritiy-create page');
-  res.render('celebrities/create');
-});
-
-celebritiesRouter.post('/', (req, res) => {
-  console.log(req.body);
-  const name = req.body.name;
-  const occupation = req.body.occupation;
-  const catchPhrase = req.body.catchPhrase;
-
-  return Celebrity.create({
-    name,
-    occupation,
-    catchPhrase,
-  });
 });
 
 //delete an exisiting celeb
