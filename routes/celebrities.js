@@ -35,12 +35,24 @@ celebritiesRouter.post('/create', (req, res, next) => {
     occupation,
     catchPhrase,
   })
-    .save()
     .then((celebrities) => {
       res.redirect('/');
     })
     .catch((error) => {
       res.render('celebrities/create');
+    });
+});
+
+//delete an exisiting celeb
+celebritiesRouter.post('/:id/delete', (req, res, next) => {
+  const id = req.params.id;
+  console.log(request.params);
+  Celebrities.findOneAndRemove({ _id: id })
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch((error) => {
+      next(error);
     });
 });
 
@@ -58,7 +70,6 @@ celebritiesRouter.get('/:id', (req, res, next) => {
     });
 });
 
-//delete an exisiting celeb
 //edit an exisiting celeb
 
 module.exports = celebritiesRouter;

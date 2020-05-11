@@ -8,6 +8,9 @@
         
 <a href="/celebrities/{{ _id }}">{{name}}</a>
     </li>
+<form action="/celebrities/{{ _id }}/create" method="POST">
+<button>Delete this celebrity</button>
+</form>
     {{/each}}
 
 
