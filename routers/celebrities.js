@@ -1,46 +1,66 @@
 const express = require('express');
 const router = new express.Router();
+
 const Celebrity = require('../models/celebrity');
 
  // FIND CELEBRITIES
 
-router.get('/celebrities', (req, res, next) => {
+router.get('/', (req, res, next) => {
   Celebrity.find()
     .then((celebrities) => {
-      res.render('celebrities/index', { celebrities: celebrities });
+      res.render('celebrities/index', { celebrities });
     })
-    .catch((error) => {
+    .catch(error => {
       next(error);
     });
 });
 
-router.get('/celebrities/:id', (req, res, next) => {
-  const id = req.params.id;
-  Celebrity.findById(id)
-    .then((celebrities) => {
-      res.render('celebrities/show', { celebrities: celebrities });
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
+//CREATE CELEBRITY GET AND POST METHOD -> POST method has to come before the :id path
 
-//CREATE CELEBRITY GET AND POST METHOD
-
-router.get('/celebrities/create', (req, res) => {
+router.get('/create', (req, res) => {
   res.render('celebrities/create');
 });
 
-router.post('/celebrities', (req, res, next) => {
+router.post('/', (req, res, next) => {
   const data = req.body;
 
-  Celebrity.create({
+  const celebrity = new Celebrity({
     name: data.name,
     occupation: data.occupation,
     catchPhrase: data.catchPhrase
   })
-    .then((celebrities) => {
-      res.redirect('/');
+  celebrity
+  .save()
+  .then(celebrity => {
+      res.redirect(`/celebrities/${celebrity._id}`);
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
+// Same way of writting that above
+//   Celebrity.create({
+//     name: data.name,
+//     occupation: data.occupation,
+//     catchPhrase: data.catchPhrase
+//   })
+//     .then((celebrity) => {
+//       res.redirect('/');
+//     })
+//     .catch((error) => {
+//       next(error);
+//     });
+// });
+
+
+ // SHOW SINGLE CELEBRITY
+
+router.get('/:id', (req, res, next) => {
+  const id = req.params.id;
+  Celebrity.findById(id)
+    .then(celebrity => {
+      res.render('celebrities/show', { celebrity });
     })
     .catch((error) => {
       next(error);
@@ -49,11 +69,11 @@ router.post('/celebrities', (req, res, next) => {
 
 // DELETE CELEBRITIES
 
-router.post('/celebrities/:id/delete', (req, res, next) => {
+router.post('/:id/delete', (req, res, next) => {
   const id = req.params.id;
   Celebrity.findByIdAndRemove(id)
-    .then((celebrities) => {
-      res.redirect('/');
+    .then((celebrity) => {
+      res.redirect('/celebrities');
     })
     .catch((error) => {
       next(error);
@@ -62,18 +82,18 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
 
 // EDIT CELEBRITIES
 
-router.get('/celebrities/:id/edit', (req, res, next) => {
+router.get('/:id/edit', (req, res, next) => {
   const id = req.params.id;
   Celebrity.findById(id)
-    .then((celebrities) => {
-      res.render('celebrities/edit', { celebrities });
+    .then((celebrity) => {
+      res.render('celebrities/edit', { celebrity });
     })
     .catch((error) => {
       next(error);
     });
 });
 
-router.post('/:id/edit', (req, res, next) => {
+router.post('/:id', (req, res, next) => {
   const id = req.params.id;
   const data = req.body;
   Celebrity.findByIdAndUpdate(id, {
@@ -81,8 +101,8 @@ router.post('/:id/edit', (req, res, next) => {
     occupation: data.occupation,
     catchPhrase: data.catchPhrase
   })
-    .then((celebrities) => {
-      res.redirect(`/celebrities/${celebrity._id}`);
+    .then((celebrity) => {
+      res.redirect('/celebrities');
     })
     .catch((error) => {
       next(error);
