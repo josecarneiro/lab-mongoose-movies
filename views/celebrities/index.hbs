@@ -4,4 +4,9 @@
                 {{name}}
             </h2>
         </a>
+        <form method="POST" action="/celebrities/{{id}}/delete">
+            <button>Delete</button>
+        </form>
     {{/each}}
+
+<a href="/celebrities/create">Post some new celebrity gossip</a>
